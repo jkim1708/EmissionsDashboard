@@ -8,33 +8,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Progress } from "@/components/ui/progress"
+import { ValueType } from 'recharts/types/component/DefaultTooltipContent'
 
 // Dynamic data generation
 const generateDynamicData = () => {
   return {
     co2Data: [
-      { month: 'Jan', emissions: 1200 },
-      { month: 'Feb', emissions: 1150 },
-      { month: 'Mär', emissions: 1100 },
-      { month: 'Apr', emissions: 1050 },
-      { month: 'Mai', emissions: 1000 },
-      { month: 'Jun', emissions: 950 },
+      {month: 'Jan', emissions: 1200},
+      {month: 'Feb', emissions: 1150},
+      {month: 'Mär', emissions: 1100},
+      {month: 'Apr', emissions: 1050},
+      {month: 'Mai', emissions: 1000},
+      {month: 'Jun', emissions: 950},
     ],
     energyData: [
-      { source: 'Solar', value: 35, color: '#FFD700' },
-      { source: 'Wind', value: 25, color: '#87CEEB' },
-      { source: 'Wasserkraft', value: 15, color: '#1E90FF' },
-      { source: 'Biomasse', value: 10, color: '#228B22' },
-      { source: 'Geothermie', value: 5, color: '#8B4513' },
-      { source: 'Fossile Brennstoffe', value: 10, color: '#A9A9A9' },
+      {source: 'Solar', value: 35, color: '#FFD700'},
+      {source: 'Wind', value: 25, color: '#87CEEB'},
+      {source: 'Wasserkraft', value: 15, color: '#1E90FF'},
+      {source: 'Biomasse', value: 10, color: '#228B22'},
+      {source: 'Geothermie', value: 5, color: '#8B4513'},
+      {source: 'Fossile Brennstoffe', value: 10, color: '#A9A9A9'},
     ],
     transportData: [
-      { mode: 'Bus', users: 15000, icon: Bus },
-      { mode: 'Straßenbahn', users: 12000, icon: Train },
-      { mode: 'Fahrrad', users: 8000, icon: Bike },
-      { mode: 'E-Bike', users: 3000, icon: Battery },
-      { mode: 'Carsharing', users: 5000, icon: Car },
-      { mode: 'Zu Fuß', users: 10000, icon: PersonStanding },
+      {mode: 'Bus', users: 15000, icon: Bus},
+      {mode: 'Straßenbahn', users: 12000, icon: Train},
+      {mode: 'Fahrrad', users: 8000, icon: Bike},
+      {mode: 'E-Bike', users: 3000, icon: Battery},
+      {mode: 'Carsharing', users: 5000, icon: Car},
+      {mode: 'Zu Fuß', users: 10000, icon: PersonStanding},
     ],
     weatherData: {
       temperature: 22,
@@ -46,38 +47,38 @@ const generateDynamicData = () => {
       smartCharging: 18,
       availableStations: 7,
       stationDetails: [
-        { id: 1, name: "Hauptbahnhof", status: "Aktiv", type: "Schnellladestation", power: "150 kW" },
-        { id: 2, name: "Rathaus", status: "Verfügbar", type: "Normalladestation", power: "22 kW" },
-        { id: 3, name: "Stadtpark", status: "Aktiv", type: "Normalladestation", power: "11 kW" },
-        { id: 4, name: "Einkaufszentrum", status: "Außer Betrieb", type: "Schnellladestation", power: "50 kW" },
-        { id: 5, name: "Schwimmbad", status: "Aktiv", type: "Normalladestation", power: "22 kW" },
+        {id: 1, name: "Hauptbahnhof", status: "Aktiv", type: "Schnellladestation", power: "150 kW"},
+        {id: 2, name: "Rathaus", status: "Verfügbar", type: "Normalladestation", power: "22 kW"},
+        {id: 3, name: "Stadtpark", status: "Aktiv", type: "Normalladestation", power: "11 kW"},
+        {id: 4, name: "Einkaufszentrum", status: "Außer Betrieb", type: "Schnellladestation", power: "50 kW"},
+        {id: 5, name: "Schwimmbad", status: "Aktiv", type: "Normalladestation", power: "22 kW"},
       ]
     },
     airQualityIndex: 65,
     airQualityData: [
-      { pollutant: 'PM2.5', value: 10, limit: 25 },
-      { pollutant: 'PM10', value: 20, limit: 50 },
-      { pollutant: 'NO2', value: 25, limit: 40 },
-      { pollutant: 'O3', value: 60, limit: 120 },
+      {pollutant: 'PM2.5', value: 10, limit: 25},
+      {pollutant: 'PM10', value: 20, limit: 50},
+      {pollutant: 'NO2', value: 25, limit: 40},
+      {pollutant: 'O3', value: 60, limit: 120},
     ],
     impactData: [
-      { initiative: 'LED-Straßenbeleuchtung', co2Reduction: 500, costSavings: 50000, icon: Zap },
-      { initiative: 'Gebäudedämmung', co2Reduction: 800, costSavings: 75000, icon: Leaf },
-      { initiative: 'Solaranlagen auf öffentlichen Gebäuden', co2Reduction: 1200, costSavings: 100000, icon: Battery },
-      { initiative: 'Elektrobus-Flotte', co2Reduction: 1500, costSavings: 120000, icon: Bus },
-      { initiative: 'Urbane Grünflächen', co2Reduction: 300, costSavings: 30000, icon: TreeDeciduous },
+      {initiative: 'LED-Straßenbeleuchtung', co2Reduction: 500, costSavings: 50000, icon: Zap},
+      {initiative: 'Gebäudedämmung', co2Reduction: 800, costSavings: 75000, icon: Leaf},
+      {initiative: 'Solaranlagen auf öffentlichen Gebäuden', co2Reduction: 1200, costSavings: 100000, icon: Battery},
+      {initiative: 'Elektrobus-Flotte', co2Reduction: 1500, costSavings: 120000, icon: Bus},
+      {initiative: 'Urbane Grünflächen', co2Reduction: 300, costSavings: 30000, icon: TreeDeciduous},
     ],
     trafficData: [
-      { line: 'Bus 101', delay: 3, district: 'Mitte → Ost', time: '07:30 - 19:30', icon: Bus },
-      { line: 'Tram 1', delay: 0, district: 'Ost → West', time: '06:00 - 23:00', icon: Train },
-      { line: 'Bus 202', delay: 12, district: 'West → Süd', time: '08:00 - 20:00', icon: Bus },
-      { line: 'Tram 2', delay: 7, district: 'Süd → Nord', time: '05:30 - 22:30', icon: Train },
-      { line: 'Bus 303', delay: 1, district: 'Nord → Mitte', time: '07:00 - 19:00', icon: Bus },
+      {line: 'Bus 101', delay: 3, district: 'Mitte → Ost', time: '07:30 - 19:30', icon: Bus},
+      {line: 'Tram 1', delay: 0, district: 'Ost → West', time: '06:00 - 23:00', icon: Train},
+      {line: 'Bus 202', delay: 12, district: 'West → Süd', time: '08:00 - 20:00', icon: Bus},
+      {line: 'Tram 2', delay: 7, district: 'Süd → Nord', time: '05:30 - 22:30', icon: Train},
+      {line: 'Bus 303', delay: 1, district: 'Nord → Mitte', time: '07:00 - 19:00', icon: Bus},
     ],
   }
 }
 
-const formatNumber = (num) => {
+const formatNumber = (num: ValueType) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 }
 
@@ -93,7 +94,7 @@ export function SustainabilityDashboardComponent() {
     return () => clearInterval(interval)
   }, [])
 
-  const getAirQualityColor = (aqi) => {
+  const getAirQualityColor = (aqi: number) => {
     if (aqi <= 50) return 'bg-green-500'
     if (aqi <= 100) return 'bg-yellow-400'
     if (aqi <= 150) return 'bg-orange-400'
@@ -101,7 +102,7 @@ export function SustainabilityDashboardComponent() {
     return 'bg-purple-500'
   }
 
-  const getAirQualityText = (aqi) => {
+  const getAirQualityText = (aqi: number) => {
     if (aqi <= 50) return 'Sehr gut'
     if (aqi <= 100) return 'Gut'
     if (aqi <= 150) return 'Mäßig'
@@ -273,7 +274,7 @@ export function SustainabilityDashboardComponent() {
                       {data.transportData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill="#3b82f6" />
                       ))}
-                      <LabelList dataKey="users" position="right" formatter={(value) => formatNumber(value)} />
+                      <LabelList dataKey="users" position="right" formatter={(value: ValueType) => formatNumber(value)} />
                     </Bar>
                   </BarChart>
                 </ResponsiveContainer>
@@ -294,7 +295,9 @@ export function SustainabilityDashboardComponent() {
                       </span>
                       <span className="text-slate-800">{data.mobilityData.activeStations} / {data.mobilityData.totalStations}</span>
                     </div>
-                    <Progress value={(data.mobilityData.activeStations / data.mobilityData.totalStations) * 100} className="bg-slate-200" indicatorClassName="bg-blue-500" />
+                    <Progress value={(data.mobilityData.activeStations / data.mobilityData.totalStations) * 100} className="bg-slate-200"
+                              // indicatorClassName="bg-blue-500"
+                    />
                   </div>
                   <div>
                     <div className="flex justify-between mb-2">
@@ -304,7 +307,9 @@ export function SustainabilityDashboardComponent() {
                       </span>
                       <span className="text-slate-800">{data.mobilityData.smartCharging} Stationen</span>
                     </div>
-                    <Progress value={(data.mobilityData.smartCharging / data.mobilityData.totalStations) * 100} className="bg-slate-200" indicatorClassName="bg-green-500" />
+                    <Progress value={(data.mobilityData.smartCharging / data.mobilityData.totalStations) * 100} className="bg-slate-200"
+                              // indicatorClassName="bg-green-500"
+                    />
                   </div>
                   <div>
                     <div className="flex justify-between mb-2">
@@ -314,7 +319,10 @@ export function SustainabilityDashboardComponent() {
                       </span>
                       <span className="text-slate-800">{data.mobilityData.availableStations}</span>
                     </div>
-                    <Progress value={(data.mobilityData.availableStations / data.mobilityData.totalStations) * 100} className="bg-slate-200" indicatorClassName="bg-purple-500" />
+                    <Progress value={(data.mobilityData.availableStations / data.mobilityData.totalStations) * 100} className="bg-slate-200"
+
+                              // indicatorClassName="bg-purple-500"
+                    />
                   </div>
                 </div>
               </CardContent>
