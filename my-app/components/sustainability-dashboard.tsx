@@ -2,15 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { Bar, BarChart, Line, LineChart, Pie, PieChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell, LabelList } from 'recharts'
-import { AlertCircle, Bus, Info, Leaf, Zap, Thermometer, Droplets, Wind, Bike, Car, Train, PersonStanding, Battery, Trash2, Recycle, TreeDeciduous, ArrowRight, Building2, PlugZap, BatteryCharging, Plug, CheckCircle2, XCircle } from 'lucide-react'
+import { AlertCircle, Bus, Leaf, Zap, Thermometer, Droplets, Wind, Bike, Car, Train, PersonStanding, Battery, TreeDeciduous, Building2, PlugZap, BatteryCharging, Plug, CheckCircle2, XCircle } from 'lucide-react'
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Progress } from "@/components/ui/progress"
-import { Button } from "@/components/ui/button"
 
 // Dynamic data generation
 const generateDynamicData = () => {
@@ -86,7 +83,6 @@ const formatNumber = (num) => {
 
 export function SustainabilityDashboardComponent() {
   const [activeTab, setActiveTab] = useState('overview')
-  const [selectedDistrict, setSelectedDistrict] = useState('Alle')
   const [data, setData] = useState(generateDynamicData())
 
   useEffect(() => {
@@ -111,13 +107,6 @@ export function SustainabilityDashboardComponent() {
     if (aqi <= 150) return 'Mäßig'
     if (aqi <= 200) return 'Schlecht'
     return 'Sehr schlecht'
-  }
-
-  const getDelayColor = (delay) => {
-    if (delay === 0) return 'bg-green-500'
-    if (delay <= 5) return 'bg-blue-500'
-    if (delay <= 10) return 'bg-yellow-400'
-    return 'bg-red-500'
   }
 
   return (
